@@ -23,6 +23,9 @@ mCardAdapterHelper.onCreateViewHolder(parent, itemView);
 mCardAdapterHelper.onBindViewHolder(holder.itemView, position, getItemCount());
 ```
 
+// 画廊
+implementation 'com.github.R-Gang:RVCardGallery:0.1.0@aar'
+
 ## Apk download
 [app_debug.apk](https://github.com/R-Gang/RVCardGallery/tree/main/art/app-debug.apk?raw=true)
 
