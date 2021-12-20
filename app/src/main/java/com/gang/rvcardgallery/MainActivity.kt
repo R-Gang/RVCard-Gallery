@@ -11,8 +11,8 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gang.library.CardScaleHelper
-import com.gang.rvcardgallery.util.BlurBitmapUtils
-import com.gang.rvcardgallery.util.ViewSwitchUtils
+import com.gang.util.BlurBitmapUtils
+import com.gang.util.ViewSwitchUtils
 import java.util.*
 
 class MainActivity : Activity() {
