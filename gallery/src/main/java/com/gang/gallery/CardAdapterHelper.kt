@@ -1,4 +1,4 @@
-package com.gang.library
+package com.gang.gallery
 
 import android.view.View
 import android.view.ViewGroup

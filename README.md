@@ -45,6 +45,3 @@ mCardAdapterHelper.onBindViewHolder(holder.itemView, position, getItemCount());
 
 ## Reference
 [使用RecyclerView实现Gallery画廊效果](http://huazhiyuan2008.github.io/2016/09/02/使用RecyclerView实现Gallery画廊效果)
-
-
-## License
