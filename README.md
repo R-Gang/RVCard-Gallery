@@ -45,3 +45,10 @@ mCardAdapterHelper.onBindViewHolder(holder.itemView, position, getItemCount());
 
 ## Reference
 [使用RecyclerView实现Gallery画廊效果](http://huazhiyuan2008.github.io/2016/09/02/使用RecyclerView实现Gallery画廊效果)
+
+### ScreenShoot ViewToImage
+[各种view转bitmap](https://www.jianshu.com/p/3d03c66cf169)
+[ViewToImage](https://github.com/huazhiyuan2008/ViewToImage)
+
+    // AppBar 状态栏布局
+    implementation 'com.github.todou:appbarspring:1.0.8'

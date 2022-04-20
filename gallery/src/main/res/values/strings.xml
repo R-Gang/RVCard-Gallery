@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Gallery</string>
-    <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+
+    <string name="appbar_spring_behavior">com.google.android.material.appbar.AppBarLayoutSpringBehavior</string>
 </resources>
