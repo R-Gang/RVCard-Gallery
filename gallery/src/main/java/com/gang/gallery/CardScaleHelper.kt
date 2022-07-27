@@ -3,7 +3,7 @@ package com.gang.gallery
 import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.gang.library.common.utils.LogUtil
+import com.gang.library.common.utils.LogUtils
 import com.gang.library.common.utils.dip2px
 
 /**
@@ -44,9 +44,14 @@ class CardScaleHelper {
                 if (dx != 0) { //去掉奇怪的内存疯涨问题
                     mCurrentItemOffset += dx
                     computeCurrentItemPos()
-                    LogUtil.i(mContext!!,
-                        String.format("dx=%s, dy=%s, mScrolledX=%s", dx, dy, mCurrentItemOffset))
-                    onScrolledChangedCallback()
+                    mContext?.apply {
+                        LogUtils.i(this,
+                            String.format("dx=%s, dy=%s, mScrolledX=%s",
+                                dx,
+                                dy,
+                                mCurrentItemOffset))
+                        onScrolledChangedCallback()
+                    }
                 }
             }
         })
@@ -86,10 +91,12 @@ class CardScaleHelper {
         if (pageChanged) {
             val tempPos = currentItemPos
             currentItemPos = mCurrentItemOffset / mOnePageWidth
-            LogUtil.d(mContext!!,
-                String.format("=======onCurrentItemPos Changed======= tempPos=%s, mCurrentItemPos=%s",
-                    tempPos,
-                    currentItemPos))
+            mContext?.apply {
+                LogUtils.d(this,
+                    String.format("=======onCurrentItemPos Changed======= tempPos=%s, mCurrentItemPos=%s",
+                        tempPos,
+                        currentItemPos))
+            }
         }
     }
 
@@ -100,7 +107,9 @@ class CardScaleHelper {
         val offset = mCurrentItemOffset - currentItemPos * mOnePageWidth
         val percent = Math.max(Math.abs(offset) * 1.0 / mOnePageWidth, 0.0001)
             .toFloat()
-        LogUtil.d(mContext!!, String.format("offset=%s, percent=%s", offset, percent))
+        mContext?.apply {
+            LogUtils.d(this, String.format("offset=%s, percent=%s", offset, percent))
+        }
         var leftView: View? = null
         var rightView: View? = null
         if (currentItemPos > 0) {

@@ -6,7 +6,7 @@ import android.os.Environment
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
-import com.gang.library.common.utils.LogUtil
+import com.gang.library.common.utils.LogUtils
 import org.jetbrains.annotations.Nullable
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -46,8 +46,8 @@ object FileUtils {
             }
         }
         val file = File("$path/$baseName")
-        LogUtil.d(TAG, file.path)
-        LogUtil.d(TAG, file.absolutePath)
+        LogUtils.d(TAG, file.path)
+        LogUtils.d(TAG, file.absolutePath)
         file.mkdirs()
         return file.absolutePath + "/"
     }
@@ -102,7 +102,7 @@ object FileUtils {
     ) {
         Thread {
             val destPath = createImageFile(context).absolutePath
-            LogUtil.d(TAG, "destPath====$destPath")
+            LogUtils.d(TAG, "destPath====$destPath")
             compressBitmapToFile(bitmap, destPath)
             Handler(Looper.getMainLooper()).post { mOnImageSavedCallback?.onFinishCallback(destPath) }
             bitmap.recycle()
