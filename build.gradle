@@ -7,7 +7,18 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+
+        // 改为阿里云的镜像地址
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+
+        maven {
+            url 'https://jitpack.io'
+            credentials { username authToken }
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:3.6.4"
@@ -29,7 +40,18 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+
+        // 改为阿里云的镜像地址
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+
+        maven {
+            url 'https://jitpack.io'
+            credentials { username authToken }
+        }
     }
 }
 

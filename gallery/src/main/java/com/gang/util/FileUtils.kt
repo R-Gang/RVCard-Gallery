@@ -6,7 +6,7 @@ import android.os.Environment
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
-import com.gang.library.common.utils.LogUtils
+import com.gang.tools.kotlin.utils.LogUtils
 import org.jetbrains.annotations.Nullable
 import java.io.ByteArrayOutputStream
 import java.io.File

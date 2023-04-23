@@ -16,7 +16,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gang.library.common.utils.UExtKt;
+import com.gang.tools.kotlin.dimension.DimensionExtKt;
 
 /**
  * Created by jameson.hua on 2015/3/31.
@@ -57,7 +57,7 @@ public class CircleViewLayout extends RelativeLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        mTextSize = UExtKt.sp2px(mTextSize);
+        mTextSize = DimensionExtKt.sp2px(mTextSize);
 
         // LayoutParams circleParams = new LayoutParams(2 * mRadius, 2 * mRadius);
         LayoutParams circleParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -161,7 +161,7 @@ public class CircleViewLayout extends RelativeLayout {
         }
 
         private void init(Context context, AttributeSet attrs) {
-            mRadius = UExtKt.dip2px(mRadius);
+            mRadius = (int) DimensionExtKt.dip2px(mRadius);
 
             mCirlcePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             mCirlcePaint.setColor(mCircleColor);

@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.gang.library.common.utils.UExtKt;
+import com.gang.tools.kotlin.dimension.DimensionExtKt;
 
 import java.util.ArrayList;
 
@@ -58,8 +58,8 @@ public class CircleView extends View {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        mRadius = UExtKt.dip2px(mRadius);
-        mTextSize = UExtKt.sp2px(mTextSize);
+        mRadius = (int) DimensionExtKt.dip2px(mRadius);
+        mTextSize = DimensionExtKt.sp2px(mTextSize);
 
         mCirlcePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCirlcePaint.setColor(mCircleColor);

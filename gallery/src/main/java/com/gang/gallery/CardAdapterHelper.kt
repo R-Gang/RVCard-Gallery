@@ -3,7 +3,7 @@ package com.gang.gallery
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gang.library.common.utils.dip2px
+import com.gang.tools.kotlin.dimension.dip2px
 
 /**
  * adapter中调用onCreateViewHolder, onBindViewHolder
@@ -14,16 +14,16 @@ class CardAdapterHelper {
     private var mShowLeftCardWidth = 15
     fun onCreateViewHolder(parent: ViewGroup, itemView: View) {
         val lp: RecyclerView.LayoutParams = itemView.layoutParams as RecyclerView.LayoutParams
-        lp.width = parent.width - dip2px(2 * (mPagePadding + mShowLeftCardWidth))
+        lp.width =
+            (parent.width - dip2px(2 * (mPagePadding + mShowLeftCardWidth).toFloat())).toInt()
         itemView.layoutParams = lp
     }
 
     fun onBindViewHolder(itemView: View, position: Int, itemCount: Int) {
-        val padding: Int = dip2px(mPagePadding)
+        val padding: Int = dip2px(mPagePadding.toFloat()).toInt()
         itemView.setPadding(padding, 0, padding, 0)
-        val leftMarin = if (position == 0) padding + dip2px(mShowLeftCardWidth) else 0
-        val rightMarin =
-            if (position == itemCount - 1) padding + dip2px(mShowLeftCardWidth) else 0
+        val leftMarin: Int = if (position == 0) (padding + dip2px(mShowLeftCardWidth.toFloat())).toInt() else 0
+        val rightMarin: Int = if (position == itemCount - 1) (padding + dip2px(mShowLeftCardWidth.toFloat())).toInt() else 0
         setViewMargin(itemView, leftMarin, 0, rightMarin, 0)
     }
 

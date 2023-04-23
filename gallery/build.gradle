@@ -32,7 +32,7 @@ android {
 
     }
 
-    ndkVersion "21.1.6352462"
+    ndkVersion "22.1.7171670"
 
     dexOptions {
         preDexLibraries = false
@@ -63,6 +63,6 @@ dependencies {
 
 
     // 常用的基础类(以上为常用类关联依赖)
-    api 'com.github.R-Gang:Android-Common:v0.1.6-beta.4@aar'
+    api 'com.github.R-Gang:Tools-Utils:v1.0.1-beta.3@aar'
 
 }

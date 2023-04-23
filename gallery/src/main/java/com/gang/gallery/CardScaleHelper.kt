@@ -3,8 +3,9 @@ package com.gang.gallery
 import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.gang.library.common.utils.LogUtils
-import com.gang.library.common.utils.dip2px
+import com.gang.tools.kotlin.dimension.dip2px
+import com.gang.tools.kotlin.utils.LogUtils
+import kotlin.math.abs
 
 /**
  * Created by haoruigang on 2021-12-20.
@@ -15,14 +16,12 @@ class CardScaleHelper {
     var mScale = 0.9f // 两边视图scale
     var mPagePadding = 15 // 卡片的padding, 卡片间的距离等于2倍的mPagePadding
     var mShowLeftCardWidth = 15 // 左边卡片显示大小
-    private var mCardWidth // 卡片宽度
-            = 0
-    private var mOnePageWidth // 滑动一页的距离
-            = 0
-    private var mCardGalleryWidth = 0
+    var mCardWidth = 0 // 卡片宽度
+    var mOnePageWidth = 0 // 滑动一页的距离
+    var mCardGalleryWidth = 0
     var currentItemPos = 0
-    private var mCurrentItemOffset = 0
-    private val mLinearSnapHelper = CardLinearSnapHelper()
+    var mCurrentItemOffset = 0
+    val mLinearSnapHelper = CardLinearSnapHelper()
     fun attachToRecyclerView(mRecyclerView: RecyclerView) {
         this.mRecyclerView = mRecyclerView
         mContext = mRecyclerView.context
@@ -32,7 +31,8 @@ class CardScaleHelper {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     mLinearSnapHelper.mNoNeedToScroll =
                         mCurrentItemOffset == 0 || mCurrentItemOffset == getDestItemOffset(
-                            mRecyclerView.getAdapter()?.itemCount!! - 1)
+                            mRecyclerView.adapter?.itemCount as Int - 1
+                        )
                 } else {
                     mLinearSnapHelper.mNoNeedToScroll = false
                 }
@@ -45,11 +45,15 @@ class CardScaleHelper {
                     mCurrentItemOffset += dx
                     computeCurrentItemPos()
                     mContext?.apply {
-                        LogUtils.i(this,
-                            String.format("dx=%s, dy=%s, mScrolledX=%s",
+                        LogUtils.i(
+                            this,
+                            String.format(
+                                "dx=%s, dy=%s, mScrolledX=%s",
                                 dx,
                                 dy,
-                                mCurrentItemOffset))
+                                mCurrentItemOffset
+                            )
+                        )
                         onScrolledChangedCallback()
                     }
                 }
@@ -65,8 +69,8 @@ class CardScaleHelper {
     private fun initWidth() {
         mRecyclerView?.post(object : Runnable {
             override fun run() {
-                mCardGalleryWidth = mRecyclerView?.width!!
-                mCardWidth = mCardGalleryWidth - dip2px(2 * (mPagePadding + mShowLeftCardWidth))
+                mCardGalleryWidth = mRecyclerView?.width as Int
+                mCardWidth = (mCardGalleryWidth - dip2px(2 * (mPagePadding + mShowLeftCardWidth).toFloat())).toInt()
                 mOnePageWidth = mCardWidth
                 mRecyclerView?.smoothScrollToPosition(currentItemPos)
                 onScrolledChangedCallback()
@@ -74,28 +78,32 @@ class CardScaleHelper {
         })
     }
 
-    private fun getDestItemOffset(destPos: Int): Int {
+    fun getDestItemOffset(destPos: Int): Int {
         return mOnePageWidth * destPos
     }
 
     /**
      * 计算mCurrentItemOffset
      */
-    private fun computeCurrentItemPos() {
+    fun computeCurrentItemPos() {
         if (mOnePageWidth <= 0) return
         var pageChanged = false
         // 滑动超过一页说明已翻页
-        if (Math.abs(mCurrentItemOffset - currentItemPos * mOnePageWidth) >= mOnePageWidth) {
+        if (abs(mCurrentItemOffset - currentItemPos * mOnePageWidth) >= mOnePageWidth) {
             pageChanged = true
         }
         if (pageChanged) {
             val tempPos = currentItemPos
             currentItemPos = mCurrentItemOffset / mOnePageWidth
             mContext?.apply {
-                LogUtils.d(this,
-                    String.format("=======onCurrentItemPos Changed======= tempPos=%s, mCurrentItemPos=%s",
+                LogUtils.d(
+                    this,
+                    String.format(
+                        "=======onCurrentItemPos Changed======= tempPos=%s, mCurrentItemPos=%s",
                         tempPos,
-                        currentItemPos))
+                        currentItemPos
+                    )
+                )
             }
         }
     }
@@ -103,7 +111,7 @@ class CardScaleHelper {
     /**
      * RecyclerView位移事件监听, view大小随位移事件变化
      */
-    private fun onScrolledChangedCallback() {
+    fun onScrolledChangedCallback() {
         val offset = mCurrentItemOffset - currentItemPos * mOnePageWidth
         val percent = Math.max(Math.abs(offset) * 1.0 / mOnePageWidth, 0.0001)
             .toFloat()

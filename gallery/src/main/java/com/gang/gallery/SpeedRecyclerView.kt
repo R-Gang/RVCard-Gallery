@@ -35,7 +35,7 @@ class SpeedRecyclerView : RecyclerView {
     }
 
     companion object {
-        private const val FLING_SCALE_DOWN_FACTOR = 0.5f // 减速因子
-        private const val FLING_MAX_VELOCITY = 8000 // 最大顺时滑动速度
+        var FLING_SCALE_DOWN_FACTOR = 0.5f // 减速因子
+        var FLING_MAX_VELOCITY = 8000 // 最大顺时滑动速度
     }
 }

@@ -1,12 +1,13 @@
-package com.gang.rvcardgallery
+package com.gang.rvcardgallery.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.gang.library.CardAdapterHelper
-import com.gang.library.common.utils.showToast
+import com.gang.gallery.CardAdapterHelper
+import com.gang.rvcardgallery.R
+import com.gang.tools.kotlin.utils.showToast
 import java.util.*
 
 /**
@@ -24,7 +25,7 @@ internal class CardAdapter(mList: List<Int>) : RecyclerView.Adapter<CardAdapter.
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        mCardAdapterHelper.onBindViewHolder(holder.itemView, position, getItemCount())
+        mCardAdapterHelper.onBindViewHolder(holder.itemView, position, itemCount)
         holder.mImageView.setImageResource(mList[position])
         holder.mImageView.setOnClickListener {
             showToast("" + position)
