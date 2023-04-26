@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.gang.gallery.CardAdapterHelper
+import com.gang.gallery.helper.CardAdapterHelper
 import com.gang.rvcardgallery.R
 import com.gang.tools.kotlin.utils.showToast
 import java.util.*

@@ -1,6 +1,7 @@
 package com.gang.rvcardgallery
 
 import android.app.Application
+import com.gang.imageloader.initImage.initLoadImage
 import com.gang.tools.kotlin.utils.initToolsUtils
 
 /**
@@ -21,6 +22,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        initLoadImage(this)
         initToolsUtils(this)
     }
 

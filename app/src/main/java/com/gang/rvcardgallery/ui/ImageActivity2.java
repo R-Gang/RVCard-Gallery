@@ -1,9 +1,7 @@
 package com.gang.rvcardgallery.ui;
 
 import android.os.Bundle;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.gang.rvcardgallery.R;
 import com.gang.rvcardgallery.base.BaseActivity;
@@ -32,7 +30,7 @@ public class ImageActivity2 extends BaseActivity {
 
         mImageView1.setImageResource(R.drawable.pic1);
         mImageView2.setImageResource(R.drawable.pic2);
-        mImageView3.setImageResource(R.drawable.pic4);
+        mImageView3.setImageResource(R.drawable.pic7);
 
     }
 

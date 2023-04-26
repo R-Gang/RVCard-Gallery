@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.gang.rvcardgallery.R;
 import com.gang.rvcardgallery.base.BaseActivity;
+import com.gang.scrolllayout.ui.MainActivity1;
 
 public class MyActivity extends BaseActivity implements View.OnClickListener {
     /**
@@ -26,6 +27,7 @@ public class MyActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.btn4).setOnClickListener(this);
         findViewById(R.id.btn5).setOnClickListener(this);
         findViewById(R.id.btn6).setOnClickListener(this);
+        findViewById(R.id.btn7).setOnClickListener(this);
 
         // findViewById(R.id.btn3).performClick();
     }
@@ -55,6 +57,9 @@ public class MyActivity extends BaseActivity implements View.OnClickListener {
 
             case R.id.btn6:
                 startActivity(new Intent(MyActivity.this, MainActivity.class));
+                break;
+            case R.id.btn7:
+                startActivity(new Intent(MyActivity.this, MainActivity1.class));
                 break;
 
         }

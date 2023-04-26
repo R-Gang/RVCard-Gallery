@@ -27,7 +27,7 @@
             android:scaleType="matrix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/pic4"/>
+            android:src="@drawable/pic7"/>
 
         <com.gang.rvcardgallery.widget.FitImageView
             android:id="@+id/image1"

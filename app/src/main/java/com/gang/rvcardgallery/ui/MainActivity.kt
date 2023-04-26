@@ -7,15 +7,16 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.gang.gallery.CardScaleHelper
+import com.gang.gallery.helper.CardScaleHelper
 import com.gang.imageloader.java.BlurBitmapUtils
 import com.gang.rvcardgallery.R
+import com.gang.rvcardgallery.base.BaseActivity
 import com.gang.util.ViewSwitchUtils
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private var mRecyclerView: RecyclerView? = null
     private var mBlurView: ImageView? = null

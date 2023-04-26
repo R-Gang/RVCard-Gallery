@@ -2,7 +2,6 @@ package com.gang.gallery
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.annotation.Nullable
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -11,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
  * Created by haoruigang on 2021-12-20.
  */
 class SpeedRecyclerView : RecyclerView {
-    constructor(context: Context) : super(context) {}
-    constructor(context: Context, @Nullable attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context, @Nullable attrs: AttributeSet?, defStyle: Int) : super(context,
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
         attrs,
-        defStyle) {
-    }
+        defStyle
+    )
 
     override fun fling(velocityX: Int, velocityY: Int): Boolean {
         var velocityX = velocityX
