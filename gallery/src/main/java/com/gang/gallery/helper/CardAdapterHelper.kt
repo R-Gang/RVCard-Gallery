@@ -3,6 +3,7 @@ package com.gang.gallery.helper
 import android.view.View
 import android.view.ViewGroup
 import com.gang.tools.kotlin.dimension.dp
+import com.gang.tools.kotlin.dimension.screenWidth
 import com.gang.tools.kotlin.view.widthValue
 
 /**
@@ -10,11 +11,20 @@ import com.gang.tools.kotlin.view.widthValue
  * Created by haoruigang on 2021-12-20
  */
 open class CardAdapterHelper {
-    private var mPagePadding = 15.dp
-    private var mShowLeftCardWidth = 15.dp
+
+    /**
+     * pagePadding (dp)
+     */
+    var mPagePadding = 15.dp
+
+    /**
+     * showLeftCardWidth (dp)
+     */
+    var mShowLeftCardWidth = 15.dp
+
     fun onCreateViewHolder(parent: ViewGroup, itemView: View?) {
         itemView?.apply {
-            widthValue = (parent.width - 2 * (mPagePadding + mShowLeftCardWidth))
+            widthValue = (screenWidth - 2 * (mPagePadding + mShowLeftCardWidth))
         }
     }
 
@@ -36,17 +46,4 @@ open class CardAdapterHelper {
         }
     }
 
-    /**
-     * pagePadding (dp)
-     */
-    fun setPagePadding(pagePadding: Int) {
-        mPagePadding = pagePadding
-    }
-
-    /**
-     * showLeftCardWidth (dp)
-     */
-    fun setShowLeftCardWidth(showLeftCardWidth: Int) {
-        mShowLeftCardWidth = showLeftCardWidth
-    }
 }

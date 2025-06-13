@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/ic_launcher">
 
-    <com.gang.scroll.ScrollLayout
+    <com.yinglan.scrolllayout.ScrollLayout
         android:id="@+id/scroll_down_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +17,7 @@
         app:minOffset="50dp"
         app:mode="open">
 
-        <com.gang.scroll.content.ContentScrollView
+        <com.yinglan.scrolllayout.content.ContentScrollView
             android:id="@+id/content_scroll_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,9 +42,9 @@
 
             </RelativeLayout>
 
-        </com.gang.scroll.content.ContentScrollView>
+        </com.yinglan.scrolllayout.content.ContentScrollView>
 
-    </com.gang.scroll.ScrollLayout>
+    </com.yinglan.scrolllayout.ScrollLayout>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

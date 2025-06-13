@@ -3,7 +3,7 @@ package com.gang.gallery.helper
 import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.gang.tools.kotlin.dimension.dip2px
+import com.gang.tools.kotlin.dimension.dp
 import com.gang.tools.kotlin.utils.LogUtils
 import kotlin.math.abs
 
@@ -14,8 +14,8 @@ class CardScaleHelper {
     private var mRecyclerView: RecyclerView? = null
     private var mContext: Context? = null
     var mScale = 0.9f // 两边视图scale
-    var mPagePadding = 15 // 卡片的padding, 卡片间的距离等于2倍的mPagePadding
-    var mShowLeftCardWidth = 15 // 左边卡片显示大小
+    var mPagePadding = 15.dp // 卡片的padding, 卡片间的距离等于2倍的mPagePadding
+    var mShowLeftCardWidth = 15.dp // 左边卡片显示大小
     var mCardWidth = 0 // 卡片宽度
     var mOnePageWidth = 0 // 滑动一页的距离
     var mCardGalleryWidth = 0
@@ -70,7 +70,7 @@ class CardScaleHelper {
         mRecyclerView?.post(object : Runnable {
             override fun run() {
                 mCardGalleryWidth = mRecyclerView?.width as Int
-                mCardWidth = (mCardGalleryWidth - dip2px(2 * (mPagePadding + mShowLeftCardWidth).toFloat())).toInt()
+                mCardWidth = mCardGalleryWidth - (2 * (mPagePadding + mShowLeftCardWidth))
                 mOnePageWidth = mCardWidth
                 mRecyclerView?.smoothScrollToPosition(currentItemPos)
                 onScrolledChangedCallback()

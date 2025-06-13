@@ -9,9 +9,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gang.rvcardgallery.R;
-import com.gang.scroll.ScrollLayout;
 import com.gang.scrolllayout.viewpager.ListviewAdapter;
 import com.gang.tools.kotlin.dimension.DimensionExtKt;
+import com.yinglan.scrolllayout.ScrollLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 

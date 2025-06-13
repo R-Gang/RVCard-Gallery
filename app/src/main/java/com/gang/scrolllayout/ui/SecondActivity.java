@@ -6,10 +6,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.gang.rvcardgallery.R;
-import com.gang.scroll.ScrollLayout;
 import com.gang.scrolllayout.model.Address;
 import com.gang.scrolllayout.model.Constant;
 import com.gang.scrolllayout.viewpager.MainPagerAdapter;
+import com.yinglan.scrolllayout.ScrollLayout;
 
 import java.util.ArrayList;
 

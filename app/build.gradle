@@ -89,4 +89,7 @@ dependencies {
 
     implementation project(':gallery')
 
+    // 类似高德百度地图抽屉拖拽效果(三段式拖拽抽屉)
+    implementation 'com.yinglan.scrolllayout:scrolllayout:1.0.2'
+
 }
